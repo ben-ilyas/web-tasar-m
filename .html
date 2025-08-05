@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-logo">
-            <img src="logo.png" alt="Çamlıca Kurban Çiftliği" height="50">
+            <img src="logopng.png" alt="Güneştepe Kurban" height="50">
         </div>
         <ul class="navbar-menu">
             <li class="active"><a href="#home">Anasayfa</a></li>
@@ -26,5 +26,66 @@
         </div>
     </nav>
 
+    <div class="anasayfa-slider">
+        <div class="slider-images">
+            <video src="video.mp4" autoplay loop muted class="slider-img active"></video>
+            <img src="inek.jpg" alt="İnek Kurbanlık" class="slider-img">
+            <img src="kucukbas-kurbanlik.jpg" alt="Küçükbaş Kurbanlık" class="slider-img">
+        </div>
+        <button class="slider-arrow left">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <polyline points="18,6 10,14 18,22" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="slider-arrow right">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <polyline points="10,6 18,14 10,22" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+    </div>
+
+    <script>
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+    let isShrunk = false;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 30 && !isShrunk) {
+            navbar.classList.add('shrink');
+            isShrunk = true;
+        } else if (window.scrollY <= 30 && isShrunk) {
+            navbar.classList.remove('shrink');
+            isShrunk = false;
+        }
+    });
+
+    navbar.addEventListener('mouseenter', () => {
+        navbar.classList.remove('shrink');
+        isShrunk = false;
+    });
+
+    const images = document.querySelectorAll('.slider-img');
+    const leftBtn = document.querySelector('.slider-arrow.left');
+    const rightBtn = document.querySelector('.slider-arrow.right');
+    let current = 0;
+
+    function showImage(idx) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === idx);
+        });
+    }
+
+    leftBtn.addEventListener('click', () => {
+        current = (current - 1 + images.length) % images.length;
+        showImage(current);
+    });
+    rightBtn.addEventListener('click', () => {
+        current = (current + 1) % images.length;
+        showImage(current);
+    });
+
+    // Sayfa yüklendiğinde ilk resmi göster
+    showImage(current);
+    </script>
 </body>
 </html>
