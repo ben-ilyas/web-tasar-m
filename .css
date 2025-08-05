@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 0 40px;
+    height: 80px;
+    border-bottom: 2px solid #2e4d2c;
+}
+.navbar-logo img {
+    height: 50px;
+    margin-right: 30px;
+}
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center; /* Menü elemanlarını ortalar */
+}
+.navbar-menu li {
+    margin: 0 15px;
+}
+.navbar-menu li.active a {
+    /* Aktif menü elemanı için normal stil */
+    background: transparent;
+    color: #222;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.navbar-menu li a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    transition: background 0.2s, color 0.2s;
+}
+.navbar-menu li a:hover {
+    background: #2eaf2c;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.navbar-contact {
+    font-weight: bold;
+    color: #222;
+    margin-left: 30px;
+    font-size: 1.1em;
+}
