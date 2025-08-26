@@ -6,25 +6,51 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Güneştepe Kurban İstanbul Bakırköy</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="logopng.png" alt="Güneştepe Kurban" height="50">
-        </div>
-        <ul class="navbar-menu">
-            <li class="active"><a href="#home">Anasayfa</a></li>
-            <li><a href="#kurbanliklar">Kurbanlıklar</a></li>
-            <li><a href="#hizmetler">Hizmetler</a></li>
-            <li><a href="#hakkimizda">Hakkımızda</a></li>
-            <li><a href="#sss">S.S.S.</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-        </ul>
-        <div class="navbar-contact">
-            <span>📞 0224 452 11 99</span>
-        </div>
-    </nav>
+   <nav class="navbar">
+  <ul class="navbar-menu left">
+    <li class="active"><a href="#home">Anasayfa</a></li>
+    <li><a href="#kurbanliklar">Kurbanlıklar</a></li>
+    <li><a href="#hizmetler">Hizmetler</a></li>
+  </ul>
+
+  <div class="navbar-logo">
+    <img src="logopng.png" alt="Güneştepe Kurban" height="50">
+  </div>
+
+  <ul class="navbar-menu right">
+    <li><a href="#hakkimizda">Hakkımızda</a></li>
+    <li><a href="#sss">S.S.S.</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+
+  <ul class="navbar-menu mobile-only" id="mobileMenu">
+    <li><a href="#home">Anasayfa</a></li>
+    <li><a href="#kurbanliklar">Kurbanlıklar</a></li>
+    <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#hakkimizda">Hakkımızda</a></li>
+    <li><a href="#sss">S.S.S.</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+</nav>
+
+
+
+</nav>
+
+
+
 
     <div class="anasayfa-slider">
         <div class="slider-images">
@@ -43,49 +69,5 @@
           </svg>
         </button>
     </div>
-
-    <script>
-    const navbar = document.querySelector('.navbar');
-    let lastScrollY = window.scrollY;
-    let isShrunk = false;
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 30 && !isShrunk) {
-            navbar.classList.add('shrink');
-            isShrunk = true;
-        } else if (window.scrollY <= 30 && isShrunk) {
-            navbar.classList.remove('shrink');
-            isShrunk = false;
-        }
-    });
-
-    navbar.addEventListener('mouseenter', () => {
-        navbar.classList.remove('shrink');
-        isShrunk = false;
-    });
-
-    const images = document.querySelectorAll('.slider-img');
-    const leftBtn = document.querySelector('.slider-arrow.left');
-    const rightBtn = document.querySelector('.slider-arrow.right');
-    let current = 0;
-
-    function showImage(idx) {
-        images.forEach((img, i) => {
-            img.classList.toggle('active', i === idx);
-        });
-    }
-
-    leftBtn.addEventListener('click', () => {
-        current = (current - 1 + images.length) % images.length;
-        showImage(current);
-    });
-    rightBtn.addEventListener('click', () => {
-        current = (current + 1) % images.length;
-        showImage(current);
-    });
-
-    // Sayfa yüklendiğinde ilk resmi göster
-    showImage(current);
-    </script>
-</body>
+    </body>
 </html>
